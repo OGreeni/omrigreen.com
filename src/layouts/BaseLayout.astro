@@ -2,7 +2,7 @@
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
-interface Props {
+export interface Props {
   pageTitle: string;
   children: any;
 }
@@ -18,7 +18,7 @@ const { pageTitle } = Astro.props;
   </head>
   <body class="bg-base-200 min-h-screen flex flex-col">
     <Navbar />
-    <main class="grow">
+    <main class="grow py-10 max-w-5xl mx-auto">
       <slot />
     </main>
     <Footer />

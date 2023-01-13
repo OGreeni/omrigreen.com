@@ -1,0 +1,51 @@
+---
+import type { MarkdownInstance } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { PostFrontmatter } from '../../layouts/MarkdownPostLayout.astro';
+import Card from '../../components/Card.astro';
+
+export interface Props {
+  posts: MarkdownInstance<PostFrontmatter>[];
+}
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob<PostFrontmatter>('../posts/*.md');
+  const uniqueTags = [
+    ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter((post) =>
+      post.frontmatter.tags.includes(tag)
+    );
+
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const tag = Astro.params.tag!;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={`Posts Tagged With ${tag} | Omri Green`}>
+  <h1 class="text-5xl font-bold text-center mb-10">
+    Posts tagged with <span class="text-primary">{tag}</span>
+  </h1>
+  <ul class="flex flex-col gap-5">
+    {
+      posts.map((post) => (
+        <li>
+          <Card
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            tags={post.frontmatter.tags}
+            href={post.url!}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

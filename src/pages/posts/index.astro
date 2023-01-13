@@ -1,16 +1,26 @@
 ---
-interface PostFrontmatter {
-  title: string;
-  description: string;
-  pubDate: string;
-  author: string;
-  tags: string[];
-}
-
+import type { PostFrontmatter } from '../../layouts/MarkdownPostLayout.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const posts = await Astro.glob<PostFrontmatter>('./*.md');
+import Card from '../../components/Card.astro';
 ---
 
 <BaseLayout pageTitle="posts">
-  <h1>TEST</h1>
+  <h1 class="text-5xl font-bold text-center mb-10">
+    All <span class="text-primary">Posts</span>
+  </h1>
+  <ul class="flex flex-col gap-5">
+    {
+      posts.map((post) => (
+        <li>
+          <Card
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            tags={post.frontmatter.tags}
+            href={post.url!}
+          />
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>
