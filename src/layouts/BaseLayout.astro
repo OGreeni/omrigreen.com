@@ -1,0 +1,26 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  pageTitle: string;
+  children: any;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="bg-base-200 min-h-screen flex flex-col">
+    <Navbar />
+    <main class="grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

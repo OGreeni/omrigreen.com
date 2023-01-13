@@ -1,0 +1,16 @@
+---
+interface PostFrontmatter {
+  title: string;
+  description: string;
+  pubDate: string;
+  author: string;
+  tags: string[];
+}
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const posts = await Astro.glob<PostFrontmatter>('./*.md');
+---
+
+<BaseLayout pageTitle="posts">
+  <h1>TEST</h1>
+</BaseLayout>
