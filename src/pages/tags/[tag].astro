@@ -10,6 +10,7 @@ export interface Props {
 
 export async function getStaticPaths() {
   const posts = await Astro.glob<PostFrontmatter>('../posts/*.md');
+
   const uniqueTags = [
     ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
   ];

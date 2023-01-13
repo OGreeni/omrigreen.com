@@ -1,4 +1,5 @@
 ---
+layout: '../../layouts/MarkdownPostLayout.astro'
 title: 'Client vs Server Components in Next.js 13'
 pubDate: 2022-07-01
 author: 'Omri Green'

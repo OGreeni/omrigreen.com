@@ -1,4 +1,6 @@
 ---
+import type { MarkdownInstance } from 'astro';
+import BaseLayout from './BaseLayout.astro';
 export interface PostFrontmatter {
   title: string;
   description: string;
@@ -6,4 +8,24 @@ export interface PostFrontmatter {
   author: string;
   tags: string[];
 }
+
+export interface Props extends MarkdownInstance<PostFrontmatter> {
+  children: any;
+}
+
+const { title } = Astro.props;
 ---
+
+<BaseLayout pageTitle={title}>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css"
+    integrity="sha512-KUoB3bZ1XRBYj1QcH4BHCQjurAZnCO3WdrswyLDtp7BMwCw7dPZngSLqILf68SGgvnWHTD5pPaYrXi6wiRJ65g=="
+    crossorigin="anonymous"
+  />
+  <style slot="head"></style>
+  <h1 class="text-5xl text-center font-bold text-primary mb-10">TITLE</h1>
+  <article class="markdown-body bg-base-200 max-w-4xl px-5">
+    <slot />
+  </article>
+</BaseLayout>
