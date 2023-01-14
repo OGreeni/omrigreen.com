@@ -68,7 +68,7 @@ export default function NewsletterModalButton() {
             />
             <button className="btn-primary btn mt-1 ml-1">Subscribe</button>
           </form>
-          <div className="absolute mt-2">
+          <div className="mt-2">
             {formStatus && <NewsletterFormStatus formStatus={formStatus} />}
           </div>
           <div className="modal-action">

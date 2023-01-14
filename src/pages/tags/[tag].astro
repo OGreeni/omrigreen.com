@@ -7,28 +7,34 @@ import Card from '../../components/Card.astro';
 export interface Props {
   posts: MarkdownInstance<PostFrontmatter>[];
 }
+// TODO: switch back to getStaticPaths(). Current bug in Astro 1.9.2
+// export async function getStaticPaths() {
+//   const posts = await Astro.glob<PostFrontmatter>('../posts/*.md');
 
-export async function getStaticPaths() {
-  const posts = await Astro.glob<PostFrontmatter>('../posts/*.md');
+//   const uniqueTags = [
+//     ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
+//   ];
 
-  const uniqueTags = [
-    ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
-  ];
+//   return uniqueTags?.map((tag) => {
+//     const filteredPosts = posts.filter((post) =>
+//       post.frontmatter.tags.includes(tag)
+//     );
 
-  return uniqueTags.map((tag) => {
-    const filteredPosts = posts.filter((post) =>
-      post.frontmatter.tags.includes(tag)
-    );
-
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
-}
+//     return {
+//       params: { tag },
+//       props: { posts: filteredPosts },
+//     };
+//   });
+// }
 
 const tag = Astro.params.tag!;
-const { posts } = Astro.props;
+const posts = await Astro.glob<PostFrontmatter>('../posts/*.md');
+const filteredPosts = posts.filter((post) =>
+  post.frontmatter.tags.includes(tag)
+);
+if (!filteredPosts.length) {
+  return Astro.redirect('/tags');
+}
 ---
 
 <BaseLayout pageTitle={`Posts Tagged With ${tag} | Omri Green`}>
@@ -37,7 +43,7 @@ const { posts } = Astro.props;
   </h1>
   <ul class="flex flex-col gap-5">
     {
-      posts.map((post) => (
+      filteredPosts.map((post) => (
         <li>
           <Card
             title={post.frontmatter.title}
