@@ -9,17 +9,14 @@ const uniqueTags = [
 ---
 
 <BaseLayout pageTitle="tags">
-  <h1 class="text-5xl font-bold text-center mb-10">
+  <h1 class="mb-10 text-center text-5xl font-bold">
     All <span class="text-primary">#Tags</span>
   </h1>
   <ul class="flex flex-col gap-5">
     {
       uniqueTags.map((tag) => (
-        <div class="card w-80 bg-base-100 shadow-xl">
-          <a
-            class="card-body hover:opacity-80 hover:scale-105 transition-all"
-            href={`/tags/${tag}`}
-          >
+        <div class="card w-80 bg-base-100 shadow-xl transition-all hover:scale-105 hover:opacity-80 active:scale-90">
+          <a class="card-body" href={`/tags/${tag}`}>
             <p class="card-title text-2xl">#{tag}</p>
           </a>
         </div>

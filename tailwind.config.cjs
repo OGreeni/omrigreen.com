@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('daisyui')],
+  plugins: [require('prettier-plugin-tailwindcss'), require('daisyui')],
   daisyui: {
     styled: true,
     themes: true,

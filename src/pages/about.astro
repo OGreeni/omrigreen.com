@@ -3,5 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout pageTitle="about">
-  <h1>About me</h1>
+  <h1 class="mb-10 text-center text-5xl font-bold">
+    About <span class="text-primary">me</span>
+  </h1>
+  <img
+    src="/assets/profile.jpg"
+    alt="profile picture"
+    class="mx-auto mb-10 w-60 rounded-full shadow"
+  />
+  <div class="card mx-5 w-[80vw] max-w-2xl bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Hey there!</h2>
+      <p>
+        My name is Omri Green, and I am a software developer with a passion for
+        web development. My focus is on React.js, Next.js and TypeScript, which
+        I find to be incredibly powerful tools in building modern web
+        applications. I am currently a first-year student at Rutgers University,
+        where I'm pursuing a B.S. in Computer Science. Furthermore, my part-time
+        work on a small-scale startup allows me to apply my knowledge to
+        real-world projects, and to stay up-to-date with the latest industry
+        trends. Through my blog, I hope to share my knowledge and experience
+        with the web development community, and I invite you to join me on this
+        journey!
+      </p>
+    </div>
+  </div>
 </BaseLayout>
