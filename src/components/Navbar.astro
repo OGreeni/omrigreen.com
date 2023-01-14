@@ -1,3 +1,7 @@
+---
+import NewsletterModalButton from './NewsletterModalButton';
+---
+
 <div class="navbar bg-base-100">
   <div class="navbar-start">
     <div class="dropdown">
@@ -69,33 +73,6 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <label for="my-modal-6" class="btn-primary btn">Newsletter</label>
-    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-    <div class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
-        <h3 class="text-lg font-bold">Subscribe to my newsletter</h3>
-        <p class="py-4">
-          By signing up, you will receive notifications of new articles,
-          tutorials, and resources to help you grow as a developer. No spam
-          guaranteed.
-        </p>
-        <form>
-          <label class="label">
-            <span class="label-text">Enter your email:</span>
-          </label>
-          <input
-            type="text"
-            placeholder="username@site.com"
-            required
-            type="email"
-            class="input-bordered input-primary input w-full max-w-xs"
-          />
-          <button class="btn-primary btn">Subscribe</button>
-        </form>
-        <div class="modal-action">
-          <label for="my-modal-6" class="btn">Cancel</label>
-        </div>
-      </div>
-    </div>
+    <NewsletterModalButton client:load />
   </div>
 </div>
