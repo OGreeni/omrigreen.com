@@ -22,30 +22,29 @@ const { title, description, pubDate, author, tags } = Astro.props.frontmatter;
     href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css"
     integrity="sha512-KUoB3bZ1XRBYj1QcH4BHCQjurAZnCO3WdrswyLDtp7BMwCw7dPZngSLqILf68SGgvnWHTD5pPaYrXi6wiRJ65g=="
     crossorigin="anonymous"
+    slot="head"
   />
-  <style slot="head"></style>
-  <h1 class="mb-10 text-center text-5xl font-bold text-primary">{title}</h1>
-  <p><span class="font-bold">Published on:</span> {pubDate}</p>
-  <p>
-    <span class="font-bold">Written by:</span>
-    <a href="/about" class="link-primary link">{author}</a>
-  </p>
-  <p><span class="font-bold">Description:</span> {description}</p>
-  <p class="flex">
-    <span class="font-bold">Tags:</span>
-    <ul class="flex gap-2">
+  <article class="markdown-body max-w-3xl bg-base-200 px-5 text-base-content">
+    <h1 class="mb-10 text-center text-5xl font-bold text-primary">{title}</h1>
+    <p>
+      <span class="font-bold">Published on:</span>
+      {new Date(pubDate).toLocaleDateString()}
+    </p>
+    <p>
+      <span class="font-bold">Written by:</span>
+      <a href="/about" class="link-primary link">{author}</a>
+    </p>
+    <p><span class="font-bold">Description:</span> {description}</p>
+    <p>
+      <span class="font-bold">tags:</span>
       {
         tags.map((tag) => (
-          <li>
-            <a href={`/tags/${tag}`} class="link-primary link">
-              #{tag}
-            </a>
-          </li>
+          <a href={`/tags/${tag}`} class="link-primary link">
+            #{tag}{' '}
+          </a>
         ))
       }
-    </ul>
-  </p>
-  <article class="markdown-body max-w-3xl bg-base-200 px-5">
+    </p>
     <slot />
   </article>
 </BaseLayout>

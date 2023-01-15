@@ -27,3 +27,46 @@ export default hello;
 ```
 
 what `the` awdaad
+awda
+
+awwadwad
+
+2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+
+3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+
+## What's next
+
+I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+
+```js
+console.log('123');
+
+const hello = 123;
+export default hello;
+```
+
+what `the` awdaad
+awda
+
+awwadwad
+
+2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+
+3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+
+## What's next
+
+I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+
+```js
+console.log('123');
+
+const hello = 123;
+export default hello;
+```
+
+what `the` awdaad
+awda
+
+awwadwad
