@@ -41,7 +41,10 @@ export default function NewsletterModalButton() {
 
   return (
     <>
-      <label htmlFor="my-modal-6" className="btn-primary btn">
+      <label
+        htmlFor="my-modal-6"
+        className="btn-primary btn-xs btn md:btn-sm lg:btn-md"
+      >
         Newsletter
       </label>
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />

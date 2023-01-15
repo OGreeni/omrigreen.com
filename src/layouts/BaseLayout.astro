@@ -12,6 +12,22 @@ const { pageTitle } = Astro.props;
 
 <html lang="en">
   <head>
+    <script>
+      if (localStorage.getItem('theme')) {
+        document.body.setAttribute(
+          'data-theme',
+          localStorage.getItem('theme')!
+        );
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.body.setAttribute('data-theme', 'cmyk');
+          localStorage.setItem('theme', 'cmyk');
+        }
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
