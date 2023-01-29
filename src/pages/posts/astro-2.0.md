@@ -86,7 +86,7 @@ export default defineConfig({
 
 Now, your entire site will be server-rendered. With the new hybrid rendering feature, you can choose to render a page statically by adding the `prerender` export. For example, in your `index.astro` file, you can do the following:
 
-```astro
+```ts
 export const prerender = true;
 ```
 
