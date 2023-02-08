@@ -83,15 +83,16 @@ Consider the following example:
 
 ```tsx
 'use client';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 export default function Page() {
-    const [count, setCount] = useState(0);
-    return (
-        <>
-        <p>A bunch of static content...</p>
-        <p>lorem ipsum dolor sit amet...</p>
-        <button onClick={() => setCount(count + 1)}>Increment {count}</button>
-    )
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <p>A bunch of static content...</p>
+      <p>lorem ipsum dolor sit amet...</p>
+      <button onClick={() => setCount(count + 1)}>Increment {count}</button>
+    </>
+  );
 }
 ```
 
@@ -112,12 +113,13 @@ export default function Button() {
 import React from 'react';
 import Button from './button.tsx';
 export default function Page() {
-    return (
-        <>
-        <p>A bunch of static content...</p>
-        <p>lorem ipsum dolor sit amet...</p>
-        <Button />
-    )
+  return (
+    <>
+      <p>A bunch of static content...</p>
+      <p>lorem ipsum dolor sit amet...</p>
+      <Button />
+    </>
+  );
 }
 ```
 
